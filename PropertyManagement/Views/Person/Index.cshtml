@@ -1,0 +1,40 @@
+﻿@model Models.WebModels.Person
+
+@{
+    <div>
+        Following are the names of the persons registered in the system;
+    </div>
+    <br />
+
+    @foreach (var person in @Model.Persons)
+    {
+        <div>
+            <span style="font-weight: bolder">
+                First Name:
+            </span>
+            <span style="font-size: 20px">
+                <a asp-controller="Person"
+                   asp-action="Create"
+                   asp-route-id="@person.PersonId">@person.PersonName</a>
+            </span>
+        </div>
+        <div>
+            <span style="font-weight: bolder">
+                Telephone:
+            </span>
+            <span style="font-size: 20px">
+                @person.PersonTelephone
+            </span>
+        </div>
+        <div>
+            <span style="font-weight: bolder">
+                Address:
+            </span>
+            <span style="font-size: 20px">
+                @person.PersonAddress
+            </span>
+        </div>
+        <br />
+        <br />
+    }
+}

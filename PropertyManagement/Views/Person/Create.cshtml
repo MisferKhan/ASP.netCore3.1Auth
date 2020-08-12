@@ -1,0 +1,53 @@
+﻿@model Models.WebModels.Person
+
+@using (Html.BeginForm("AddOrUpdate", "Person", FormMethod.Post, new { @id = "personForm", role = "form" }))
+{
+    <div class="container-fluid">
+        @Html.HiddenFor(m => m.PersonId)
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        <div>
+            <div>
+                <label>Person Name</label>
+            </div>
+            <div>
+                <div>
+                    @Html.TextBoxFor(m => m.PersonName, new { id = "firstName"})
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label>Address</label>
+            </div>
+            <div>
+                <div>
+                    @Html.TextBoxFor(m => m.PersonAddress, new { id = "address"})
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label></label>
+            </div>
+            <div>
+                <div>
+                    @Html.TextBoxFor(m => m.PersonTelephone, new { id = "telephone"})
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div>
+                <div>
+                    <button id="savebtn" class="btn" type="submit">Save</button>
+                </div>
+                <div>
+                    <button id="cancel" class="btn" type="reset">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
